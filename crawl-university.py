@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
 import bs4
 
 def getHtmlText(url):
@@ -13,7 +12,7 @@ def getHtmlText(url):
         
 
 def doi(tlist, htmltext):
-    soup = BeautifulSoup(htmltext, "html.parser")
+    soup = bs4.BeautifulSoup(htmltext, "html.parser")
     for tr in soup.tbody.children:
         if isinstance (tr, bs4.element.Tag):
             tds = tr('td')
